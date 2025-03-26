@@ -12,7 +12,11 @@ async function handelGenerateNewShortURL(req, res) {
         visitHistory: [],
     });
 
-    return res.json({ id: shortID });
+    return res.render("home", {
+        id: shortID
+    })
+    // // Before used when developing only backend not rendering ejs pages
+    // return res.json({ id: shortID });
 }
 
 async function handelGetAnalytics (req, res){
