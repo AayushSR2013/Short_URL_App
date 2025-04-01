@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-6 transition-all duration-300">
+
+    <!-- Theme Toggle Button -->
+    <button onclick="toggleTheme()" class="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 rounded-full shadow-md hover:scale-105 transition">
+        🌙 / ☀️
+    </button>
+
+    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 max-w-sm w-full text-center transition-all duration-300">
+        <h1 class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-4">Signup</h1>
+        <form action="/user" method="post" class="flex flex-col space-y-4">
+            <label class="text-gray-700 dark:text-gray-300 font-medium">Full Name</label>
+            <input type="text" name="name" required 
+                class="border-2 border-gray-300 dark:border-gray-600 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 focus:outline-none bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+            <label class="text-gray-700 dark:text-gray-300 font-medium">Email</label>
+            <input type="text" name="email" required 
+                class="border-2 border-gray-300 dark:border-gray-600 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 focus:outline-none bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+            <label class="text-gray-700 dark:text-gray-300 font-medium">Password</label>
+            <input type="password" name="password" required 
+                class="border-2 border-gray-300 dark:border-gray-600 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-300 focus:outline-none bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+            <button type="submit" 
+                class="bg-blue-500 dark:bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800 transition">
+                Signup
+            </button>
+        </form>
+    </div>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
